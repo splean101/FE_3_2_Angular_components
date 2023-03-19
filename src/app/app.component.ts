@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -12,11 +12,17 @@ export class AppComponent {
     avatar: ``
   };
   addUser(newUser: any){
-this.user.name = newUser.name;
-this.user.status = newUser.status;
-this.user.avatar = newUser.avatar;
-
+    this.user.name = newUser.name;
+    this.user.status = newUser.status;
+    this.user.avatar = newUser.avatar;
+  }
+  removeUser() {
+    this.user.name = '';
+    this.user.status = '';
+    this.user.avatar = '';
   }
 }
+
+
 
 

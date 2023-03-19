@@ -1,6 +1,25 @@
 <div class="body">
-    <input type="text" placeholder="Name" (input)="onName($event)" #name>
-    <textarea type="text" placeholder="Status" (input)="onStatus($event)" #status></textarea>
-    <input type=" text" placeholder="Avatar URL" (input)="onAvatar($event)" #avatar>
-    <button type="button" (click)="addNewUser(name.value, status.value, avatar.value)">Add user</button>
+    <input type="text" 
+    placeholder="Name" 
+    [value]="nameInputValue" 
+    (input)="onName($event)" 
+    #name>
+    <input 
+    type="text" 
+    placeholder="Status" 
+    [value]="statusInputValue" 
+    (input)="onStatus($event)" 
+    maxlength="50"
+    #status>
+    <input 
+    type=" text" 
+    placeholder="Avatar URL" 
+    [value]="avaURLInputValue" 
+    (input)="onAvatar($event)" 
+    #avatar>
+    <button 
+    type="button" 
+    (click)="addNewUser(name.value, status.value, avatar.value)">
+    Add user
+</button>
 </div>

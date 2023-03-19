@@ -6,6 +6,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./add-user.component.scss']
 })
 export class AddUserComponent {
+@Output( ) onUser = new EventEmitter();
+
   nameInputValue = '';
 statusInputValue = '';
 avaURLInputValue = '';
@@ -15,6 +17,10 @@ avaURLInputValue = '';
   }
 
   onStatus(event:any){
+    if (event.target.value.length > 50) {
+      this.statusInputValue = event.target.value.slice(49)
+      return
+    }
     this.statusInputValue = event.target.value
   }
 
@@ -28,5 +34,9 @@ avaURLInputValue = '';
       status: statusValue,
       url: urlValue
     }
+    this.onUser.emit(value)
+    this.nameInputValue = ''
+    this.statusInputValue = ''
+    this.avaURLInputValue = ''
   }
 }
